@@ -1,5 +1,7 @@
-﻿namespace Exercises.Class
-{
+﻿
+namespace Assignments.DayThree { 
+
+    //Assignment 10
     public class LabTestRepository
     {
         private double[] labTestCharge;

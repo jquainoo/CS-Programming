@@ -1,47 +1,34 @@
 ﻿
-namespace Infosys.QuickKartBusinessLayer
+namespace DayTwoExercises.StaticMCV
 {
     public class Seller
     {
-        static int sellerIdCount;
+ 
         private string sellerId;
         private string sellerName;
+        private static int sellerIdCount;
 
-        public string[] SellerLocations { get; set; }
 
 
-        //Static constructor
         static Seller()
         {
             sellerIdCount = 1001;
-
         }
 
-        //Default constructor
         public Seller()
         {
-            sellerId = "S" + sellerIdCount++;
+            this.sellerId = "S" + sellerIdCount++;
         }
 
-
-        //Paramatized constructors
+           //Paramatized constructors
         public Seller(string sellerId, string sellerName)
         {
             SellerId = sellerId;
             SellerName = sellerName;
         }
 
-
-        public Seller(string sellerName)
-        {
-            SellerName = sellerName;
-        }
-
-        public Seller(int maxSize)
-            :this()
-        {
-
-        }
+        //Auto-implemented Properties
+        public string[] SellerLocations { get; set; }
 
 
         public string SellerId
@@ -66,7 +53,8 @@ namespace Infosys.QuickKartBusinessLayer
 
             set
             {
-                sellerName = value;
+                if(Validator.isName(value) == true)
+                    sellerName = value;
             }
         }
 

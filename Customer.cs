@@ -1,43 +1,82 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Infosys.Exercises1Class
+namespace AdvancedProgramming.DayOne
 {
     public class Customer
-    {
-        //Member Variables for Customer
-        private string address;
-        private int customerId;
-        private string customerName;
-        private string customerType;
-        private DateTime dateOfBirth;
-        private string emailId;
-        private string gender;
-        private string password;
 
-        public Customer(int customerId, string customerName, string address, 
-            DateTime dateOfBirth,string emailId, string gender, string password,
-            string customerType){
-            this.customerId = customerId;
-            this.customerName = customerName;
-            this.address = address;
-            this.dateOfBirth = dateOfBirth;
-            this.emailId = emailId;
-            this.gender = gender;
-            this.password = password;
-            this.customerType = customerType;
+    {
+        private int counter;
+        private string emailId;
+        private bool flag = false;
+
+        public Customer() 
+        {
+            counter = 0;
+
         }
 
-        public double GetDiscount(){
-            double discount = 0.0;
-            if (string.Equals(customerType, "priviledged", StringComparison.OrdinalIgnoreCase))
-                discount = 2;
-            else if (string.Equals(customerType, "regular", StringComparison.OrdinalIgnoreCase))
-                discount = 5;
-            else if (string.Equals(customerType, "elite", StringComparison.OrdinalIgnoreCase))
-                discount = 7;
-            else
-                discount = 0;
-            return discount;
+        public string CustomerName { get; set; }
+        public string EmailId {
+            get
+            {
+                return emailId;
+            }
+            set
+            {
+                try
+                {
+                    if (countAt(value) == 1 && !value.StartsWith("@") && value.EndsWith(".com"))
+                        emailId = value;
+                }
+                catch(InvalidEmailIdException ex){
+                    flag = true;
+                    InvalidEmailIdException invalid = new InvalidEmailIdException("Invalid email address");
+                    throw invalid;
+                }
+            }
+        }
+
+        public string PhoneNumber {
+            get
+            {
+                return PhoneNumber;
+            }
+
+            set
+            {
+                if (value.Length == 10 && !value.StartsWith("0") && value.Any(char.IsDigit))
+                    PhoneNumber = value;
+                else
+                {
+                    flag = true;
+                    InvalidPhoneNumberException invalid = new InvalidPhoneNumberException("Invalid Phone Number");
+                    throw invalid;
+                }
+            }
+        }
+
+        public string Password { get; set; }
+        public string Address { get; set; }
+        public int CustomerId { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public char Gender { get; set; }
+
+
+
+        private int countAt(string emailAddress)
+        {
+            char[] email = emailAddress.ToCharArray();
+            int count = 0;
+            for (int i = 0; i < email.Length; i++)
+            {
+                if (email[i] == ('@'))
+                    count++;
+            }
+            return count;
         }
     }
 }

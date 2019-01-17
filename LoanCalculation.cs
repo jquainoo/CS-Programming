@@ -1,7 +1,8 @@
 ﻿using System;
 
-namespace Exercises.Class
+namespace Assignments.DayThree
 {
+    //Assignment 7
     public class LoanCalculation
     {
         public LoanCalculation()
@@ -14,9 +15,9 @@ namespace Exercises.Class
             loanAmount = -1; interest = -1;
             if (doc.Length >= 2)
             {
-                for (int i = 0; i < doc.Length; i++)
+                foreach(string document in doc)
                 {
-                    if (doc[i].ToLower().Equals("Passport".ToLower()))
+                    if (document.ToLower().Equals("Passport".ToLower()))
                     {
                         if (salary < 12000)
                         {

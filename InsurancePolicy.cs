@@ -1,7 +1,8 @@
 ﻿using System;
 
-namespace Exercises.Class
+namespace Assignments.DayFour
 {
+    //Assignment 14
     public abstract class InsurancePolicy
     {
         //Properties

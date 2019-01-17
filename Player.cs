@@ -1,5 +1,6 @@
-﻿namespace Exercises.Class
+﻿namespace Assignments.DayThree
 {
+    //Assignment 6
     public class Player
     {
         private int height;

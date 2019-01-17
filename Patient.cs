@@ -1,39 +1,42 @@
-﻿namespace Exercises.Class
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignments.DayFour
 {
     public class Patient
     {
-        private string[] labTestId;
-        private int patientId;
-        private string patientName;
-        LabTestRepository lab = new LabTestRepository();
-
-
-        static Patient()
-        {
-
-        }
-
         public Patient()
         {
 
         }
 
-        public Patient(int patientId, string patientName, string[] labTestId)
+        public Patient(string name, int age, char gender, string illness)
         {
-            this.labTestId = labTestId;
-            this.patientId = patientId;
-            this.patientName = patientName;
+            Name = name;
+            Age = age;
+            Gender = gender;
+            Illness = illness;
+
         }
 
-        public double CalculateCharge()
+        public int Age { get; set; }
+        public double ConsultationFee { get; set; }
+        public char Gender { get; set; }
+        public string Illness { get; set; }
+        public string Name { get; set; }
+
+
+        public virtual double CalculateConsultationFee()
         {
-            double totalCharge = 0;
-            for(int i = 0; i < lab.LabTestId.Length; i++)
-            {
-                totalCharge += lab.GetCharge(lab.LabTestId[i]);
-            }
-            return totalCharge;
-     
+            double consultationFee = 0;
+            if (Age > 0 && Age <= 18)
+                consultationFee = Age * 10;
+            else if (Age > 18)
+                ConsultationFee = Age * 15;
+            return consultationFee;
         }
     }
 }

@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace AdvancedProgramming.DayOne
 {
-    public class Employee
+    public class InvalidEmailIdException : Exception
     {
-        public Employee()
+        public InvalidEmailIdException()
+            : base()
         {
 
         }
 
-        public bool RaiseRequest()
+        public InvalidEmailIdException(string message)
+            : base(message)
         {
-            return true;
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿
-namespace Exercises.Class
+namespace Assignments.DayThree
 {
+    //Assignment 5
     public class Trainee
     {
         private string[] focusArea;

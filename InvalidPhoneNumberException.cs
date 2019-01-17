@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace AdvancedProgramming.DayOne
 {
-    public class Employee
+    public class InvalidPhoneNumberException : Exception
     {
-        public Employee()
+        public InvalidPhoneNumberException()
+            : base()
         {
 
         }
 
-        public bool RaiseRequest()
+        public InvalidPhoneNumberException(string message)
+            : base(message)
         {
-            return true;
+
         }
     }
 }

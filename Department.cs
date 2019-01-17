@@ -1,36 +1,51 @@
-﻿namespace Exercises.Class
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AdvancedProgramming.DayTwo
 {
     public class Department
     {
-        private int deptNumber;
-        private bool isProducing;
-        private float produce;
+        private SortedList<int, string> employeeList;
 
-        static Department()
-        {
-
-        }
 
         public Department()
         {
-
+            employeeList = new SortedList<int, string>();
         }
 
-        public Department(int deptNumber, bool isProducing, float produce)
+        public SortedList<int, string> EmployeeList
         {
-            this.deptNumber = deptNumber;
-            this.isProducing = isProducing;
-            this.produce = produce;
+            get
+            {
+                return employeeList;
+            }
+
+            set
+            {
+                employeeList = value;
+            }
         }
 
-        public float GetIncentive(float multiplyFactor)
+        public void AddEmployee(Employee employee)
         {
-            float incentive = 0;
-            if (isProducing == true)
-                incentive = produce * multiplyFactor;
-            else
-                incentive = 0;
-            return incentive;
+            if (employeeList != null)
+                employeeList.Add(employee.EmployeeId, employee.Name);
+            
+
         }
+
+        public bool DeleteEmployee(Employee employee)
+        {
+            return employeeList.Remove(employee.EmployeeId);
+        }
+
+        public bool FindEmployee(Employee employee)
+        {
+            return employeeList.ContainsKey(employee.EmployeeId);
+        }
+
     }
 }
