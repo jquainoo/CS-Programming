@@ -1,21 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdvancedProgramming.DayOne
+﻿namespace AdvancedProgramming.DayTwo
 {
+    //Exercise 11
     public class Employee
     {
+        private int employeeId;
+        private string name;
+
         public Employee()
         {
 
         }
 
-        public bool RaiseRequest()
+        public int EmployeeId
         {
-            return true;
+            get
+            {
+                return employeeId;
+            }
+
+            set
+            {
+                employeeId = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
         }
     }
 }

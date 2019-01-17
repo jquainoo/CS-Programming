@@ -4,78 +4,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdvancedProgramming.DayOne
+namespace Infosys.AdvancedCSProgrammingExercises
 {
     public class Customer
-
     {
-        private int counter;
+        private static int counter;
         private string emailId;
-        private bool flag = false;
 
-        public Customer() 
-        {
-            counter = 0;
 
-        }
 
+        public string Address { get; set; }
+        public int CustomerId { get; set; }
         public string CustomerName { get; set; }
-        public string EmailId {
+        public DateTime DateOfBirth { get; set; }
+        public string EmailId
+        {
             get
             {
                 return emailId;
+        
             }
             set
             {
-                try
+                if(value.Length >= 7 && countAt('@', value) > 1 && !value.StartsWith("@") && value.EndsWith(".com"))
                 {
-                    if (countAt(value) == 1 && !value.StartsWith("@") && value.EndsWith(".com"))
-                        emailId = value;
+                    emailId = value;
                 }
-                catch(InvalidEmailIdException ex){
-                    flag = true;
-                    InvalidEmailIdException invalid = new InvalidEmailIdException("Invalid email address");
-                    throw invalid;
-                }
-            }
-        }
-
-        public string PhoneNumber {
-            get
-            {
-                return PhoneNumber;
-            }
-
-            set
-            {
-                if (value.Length == 10 && !value.StartsWith("0") && value.Any(char.IsDigit))
-                    PhoneNumber = value;
                 else
                 {
-                    flag = true;
-                    InvalidPhoneNumberException invalid = new InvalidPhoneNumberException("Invalid Phone Number");
-                    throw invalid;
+                    value = "NA";
+                    throw new InvalidEmailIdException("Email address is invalid");
                 }
             }
         }
-
-        public string Password { get; set; }
-        public string Address { get; set; }
-        public int CustomerId { get; set; }
-        public DateTime DateOfBirth { get; set; }
         public char Gender { get; set; }
+        public string Password { get; set; }
+        public string PhoneNumber { get; set; }
 
 
 
-        private int countAt(string emailAddress)
+        static Customer()
         {
-            char[] email = emailAddress.ToCharArray();
+            counter = 1001;
+        }
+        public Customer()
+        {
+
+        }
+
+        public int countAt(char atString, string checkString)
+        {
             int count = 0;
-            for (int i = 0; i < email.Length; i++)
+            char[] arr = checkString.ToCharArray();
+            for(int i = 0; i < arr.Length; i++)
             {
-                if (email[i] == ('@'))
+                if (atString == arr[i])
                     count++;
             }
+
             return count;
         }
     }
