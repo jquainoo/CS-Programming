@@ -63,5 +63,4 @@ namespace AdvancedProgramming.DayTwo
             return DateTime.Now;
         }
     }
-
 }
