@@ -51,7 +51,6 @@ namespace AdvancedProgramming.DayTwo
                         return discount.Value.ExpiryDate;
                     }
                     return DateTime.Now;
-                    
                 }
             }
             return DateTime.Now;
