@@ -5,14 +5,12 @@ namespace AdvancedProgramming.DayTwo
 {
     public class Coupon
     {
+        public Dictionary<string, Discount> AvailableCoupons { get; set; }
         
         public Coupon()
         {
             AvailableCoupons = new Dictionary<string, Discount>();
         }
-
-        public Dictionary<string, Discount> AvailableCoupons { get; set; }
-
 
         public bool AddCoupons(string travelClass, Discount discount)
         {
