@@ -8,7 +8,6 @@ namespace DayTwoExercises.StaticMCV
 {
     public class Gender
     {
-
         public enum GenderType
         {
             Male, Female, Other
