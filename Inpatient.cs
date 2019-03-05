@@ -12,7 +12,6 @@ namespace Assignments.DayFour
 
         public Inpatient() : base()
         {
-
         }
 
         public Inpatient(string name, int age, char gender, string illness, int days) 
@@ -36,12 +35,10 @@ namespace Assignments.DayFour
                     this.days = value;
                 else
                     this.days = 1;
-
             }
         }
         public double ExtraService { get; set; }
         public double PerDayService { get; set; }
-
 
         public override double CalculateConsultationFee()
         {
