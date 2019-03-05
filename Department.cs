@@ -9,8 +9,6 @@ namespace AdvancedProgramming.DayTwo
     public class Department
     {
         private SortedList<int, string> employeeList;
-
-
         public Department()
         {
             employeeList = new SortedList<int, string>();
@@ -33,8 +31,6 @@ namespace AdvancedProgramming.DayTwo
         {
             if (employeeList != null)
                 employeeList.Add(employee.EmployeeId, employee.Name);
-            
-
         }
 
         public bool DeleteEmployee(Employee employee)
@@ -46,6 +42,5 @@ namespace AdvancedProgramming.DayTwo
         {
             return employeeList.ContainsKey(employee.EmployeeId);
         }
-
     }
 }
