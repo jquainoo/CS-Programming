@@ -57,9 +57,5 @@ namespace DayTwoExercises.StaticMCV
                     sellerName = value;
             }
         }
-
-
-      
-      
     }
 }
