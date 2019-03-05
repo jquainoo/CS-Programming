@@ -10,9 +10,8 @@ namespace Infosys.AdvancedCSProgrammingExercises
     {
         private static int counter;
         private string emailId;
-
-
-
+        
+        //Properties
         public string Address { get; set; }
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
@@ -41,18 +40,16 @@ namespace Infosys.AdvancedCSProgrammingExercises
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
 
-
-
+        //Static Constructor
         static Customer()
         {
             counter = 1001;
         }
         public Customer()
         {
-
         }
 
-        public int countAt(char atString, string checkString)
+        public int CountAt(char atString, string checkString)
         {
             int count = 0;
             char[] arr = checkString.ToCharArray();
@@ -61,7 +58,6 @@ namespace Infosys.AdvancedCSProgrammingExercises
                 if (atString == arr[i])
                     count++;
             }
-
             return count;
         }
     }
