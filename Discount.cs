@@ -12,9 +12,8 @@ namespace AdvancedProgramming.DayTwo
         {
             NoOfCoupons = noOfCoupons;
             ExpiryDate = expiryDate;
-
         }
-
+        
         public int NoOfCoupons { get; set; }
         public DateTime ExpiryDate { get; set; }
     }
