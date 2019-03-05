@@ -7,28 +7,24 @@ using System.Threading.Tasks;
 namespace Exercises.Class
 {
     //Exercise 26
-    public class Employee2 : Department
+    public class EmployeeExtended : Department
     {
         private int fixedSalary;
         private DateTime workingTime;
         private double basicSalary;
         private double bonus;
         private int employeeId;
-
-
-
-        static Employee2()
+        
+        static EmployeeExtended()
         {
-
         }
 
-        public Employee2()
+        public EmployeeExtended()
         {
             BasicSalary = 10000;
         }
 
-
-        public Employee2(int fixedSalary, DateTime workingTime)
+        public EmployeeExtended(int fixedSalary, DateTime workingTime)
             : this()
         {
             this.fixedSalary = fixedSalary;
@@ -79,45 +75,32 @@ namespace Exercises.Class
             int numberOfYearsWorked = 0; double allowance = 0;
             numberOfYearsWorked = (int.Parse(DateTime.Now.ToString("yyyyMMdd")) -
                 int.Parse(cutOffDate.ToString("yyyyMMdd"))) / 10000;
-
             if (numberOfYearsWorked < 5)
                 allowance = (5 / 100) * fixedSalary;
-
             else if (numberOfYearsWorked < 10 && numberOfYearsWorked >= 5)
                 allowance = (10 / 100) * fixedSalary;
-
             else if (numberOfYearsWorked < 15 && numberOfYearsWorked >= 10)
                 allowance = (15 / 100) * fixedSalary;
-
             else
                 allowance = (20 / 100) * fixedSalary;
-
             return allowance;
-
         }
 
         public double GetAllowance()
         {
             DateTime cutOffDate = new DateTime(2014 / 03 / 31);
             int numberOfYearsWorked = 0; double allowance = 0;
-
             numberOfYearsWorked = (int.Parse(DateTime.Now.ToString("yyyyMMdd")) -
                 int.Parse(cutOffDate.ToString("yyyyMMdd"))) / 10000;
-
             if (numberOfYearsWorked < 5)
                 allowance = (5 / 100) * fixedSalary;
-
             else if (numberOfYearsWorked < 10 && numberOfYearsWorked >= 5)
                 allowance = (10 / 100) * fixedSalary;
-
             else if (numberOfYearsWorked < 15 && numberOfYearsWorked >= 10)
                 allowance = (15 / 100) * fixedSalary;
-
             else
                 allowance = (20 / 100) * fixedSalary;
-
             return allowance;
-
         }
 
 
@@ -140,16 +123,13 @@ namespace Exercises.Class
         {
             return BasicSalary;
         }
-
-
     }
 
 
-    public class SystemsEngineer : Employee2
+    public class SystemsEngineer : EmployeeExtended
     {
         public double SpecialistAllowance { get; set; }
         public string Specialization { get; set; }
-
 
         public SystemsEngineer(string specialization)
             : base()
@@ -169,7 +149,7 @@ namespace Exercises.Class
     }
 
 
-    public class Manager : Employee2
+    public class Manager : EmployeeExtended
     {
         public double PhoneAllowance { get; set; }
 
@@ -185,10 +165,9 @@ namespace Exercises.Class
     }
 
 
-    public class SeniorProjectManager : Employee2
+    public class SeniorProjectManager : EmployeeExtended
     {
         public double CarAllowance { get; set; }
-
 
         public SeniorProjectManager()
         {
@@ -199,12 +178,11 @@ namespace Exercises.Class
         {
             return base.CalculateSalary() + CarAllowance;
         }
-
     }
 
     public class Finance
     {
-       public double GetCalculatedSalary(Employee2 obj)
+       public double GetCalculatedSalary(EmployeeExtended obj)
         {
             if(obj is SystemsEngineer)
             {
