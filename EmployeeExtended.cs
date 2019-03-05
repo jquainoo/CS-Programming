@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -188,11 +188,9 @@ namespace Exercises.Class
             {
                 return (obj.Bonus = 5000) + ((SystemsEngineer)obj).CalculateSalary();
             }
-
             else if (obj is Manager)
             {
                 return (obj.Bonus = 9000) + ((Manager)obj).CalculateSalary();
-
             }
             else if (obj is SeniorProjectManager)
             {
