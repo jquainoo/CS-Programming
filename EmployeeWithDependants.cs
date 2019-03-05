@@ -223,7 +223,6 @@ namespace Assignments.DayTwo
                     break;
                 }
                 numberOfDependents = (short)countDependent;
-
                 return countDependent;
             }
             return 0;
