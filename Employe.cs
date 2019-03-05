@@ -12,6 +12,7 @@ namespace Assignments.DayThree
         private int fixedSalary;
         private DateTime workingFrom;
 
+        //static contructor
         static Employe()
         {
 
@@ -21,7 +22,6 @@ namespace Assignments.DayThree
         {
          
         }
-
 
         public Employe(int fixedSalary, DateTime workingFrom)
             : this()
