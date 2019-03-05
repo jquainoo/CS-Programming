@@ -32,10 +32,6 @@ namespace AdvancedProgramming.DayTwo
                     discount.Value.NoOfCoupons = discount.Value.NoOfCoupons + noOfCoupons;
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
             }
             return false;
         }
