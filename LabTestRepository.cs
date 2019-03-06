@@ -46,15 +46,13 @@ namespace Assignments.DayThree {
 
         public double GetCharge(string testId)
         {
-            int index = -1;
             for(int i = 0; i < LabTestId.Length; i++)
             {
-                if (testId.ToLower().Equals(LabTestId[i].ToLower()))
-                    index = i;
-                else
-                    return 0; //Breaks out of the method
+                if (testId.ToLower().Equals(LabTestId[i].ToLower())){
+                   return LabTestCharge[i];
+                }  
             }
-            return LabTestCharge[index];
+            return 0;
         }
     }
 }
