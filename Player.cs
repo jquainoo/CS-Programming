@@ -27,7 +27,7 @@
         public void CalculateScore(out string reward, int noOfHits, int noOfMisses, int noOfRetries = 3, bool complete = true)
         {
             score = (noOfHits * 100) - (noOfMisses * 25) - (noOfRetries * 50);
-            if (complete == true)
+            if (complete)
                 reward = DetermineReward();
             else
                 reward = "NA";
